@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cryptsend": "node cli.js"
+    "cryptsend": "node cli.js",
+    "cryptsend-local": "node cli.js -l --"
   },
   "author": "Gianlucci B. Minarelli",
   "license": "ISC",

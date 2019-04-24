@@ -11,7 +11,7 @@ const webcrypto = new WebCrypto();
 const argv = minimist(process.argv.slice(2));
 const filename = argv._[0];
 const filePath = path.join(__dirname, filename);
-const host = "http://localhost:1234";
+const host = argv.l || argv.local ? "http://localhost:1234" : "https://cryptsend.io";
 
 axios
   .get(`${host}/mkdir`)
