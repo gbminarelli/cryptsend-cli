@@ -1,10 +1,10 @@
 # cryptsend-cli
 
-A simple CLI for [CryptSend.io](https://github.com/countable-web/cryptsend).
+A simple CLI for [CryptSend](https://github.com/countable-web/cryptsend).
 
 ## Getting Started
 
-1. Make sure you have the latest version of [CryptSend.io](https://github.com/countable-web/cryptsend) **running locally** on your machine.
+1. Make sure you have the latest version of [CryptSend](https://github.com/countable-web/cryptsend) **running locally** on your machine.
 
 2. Grab the repo:
 
@@ -25,6 +25,11 @@ npm install
 
 ```
 node cli.js <FILE_PATH>
+```
+or:
+
+```
+npm run cryptsend <FILE_PATH>
 ```
 
 2. Grab the generated URL and open it in your browser.
