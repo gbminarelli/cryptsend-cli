@@ -1,0 +1,17 @@
+{
+  "name": "cryptsend-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gianlucci B. Minarelli",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "form-data": "^2.3.3",
+    "minimist": "^1.2.0",
+    "node-webcrypto-ossl": "^1.0.43"
+  }
+}
