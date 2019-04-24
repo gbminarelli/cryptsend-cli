@@ -1,10 +1,16 @@
 {
   "name": "cryptsend-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple CLI for CryptSend (https://github.com/countable-web/cryptsend)",
   "main": "cli.js",
+  "homepage": "https://github.com/gbminarelli/cryptsend-cli/blob/master/README.md",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/gbminarelli/cryptsend-cli.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cryptsend": "node cli.js"
   },
   "author": "Gianlucci B. Minarelli",
   "license": "ISC",
