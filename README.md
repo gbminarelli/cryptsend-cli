@@ -10,30 +10,30 @@ A simple CLI for [CryptSend](https://github.com/countable-web/cryptsend)
 git clone https://github.com/gbminarelli/cryptsend-cli.git
 ```
 
-2. Install the project's dependencies:
+2. Install cryptsend-cli globally:
 
 ```
-cd cryptsend-cli
-npm install
+npm install -g cryptsend-cli
 ```
-
-3. If you want to run your own server, make sure you have the latest version of [CryptSend](https://github.com/countable-web/cryptsend) **running locally** on your machine.
 
 ## Usage
 
-You can upload the encrypted files to your own version of CryptSend (installed locally) or to CryptSend's server:
+You can upload the encrypted files to CryptSend's server by simply navigating to the file's folder and passing the file's name to cryptsend:
 
-1. Encrypt and upload a file using the CLI:
-
-* Local server:
 
 ```
-npm run cryptsend-local <FILE_PATH>
-```
-* CryptSend's server:
-
-```
-npm run cryptsend <FILE_PATH>
+cd ~/Pictures/
+cryptsend mypicture.jpg
 ```
 
-2. Grab the generated URL and open it in your browser.
+Alternatively you can pass the absolute path to the file using the **-a** (or **--absolute**) flag:
+
+
+```
+cryptsend -a ~/Pictures/mypicture.jpg
+```
+
+
+```
+cryptsend --absolute ~/Pictures/mypicture.jpg
+```

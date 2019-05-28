@@ -1,6 +1,4 @@
 const fs = require("fs");
-const minimist = require("minimist");
-const path = require("path");
 const WebCrypto = require("node-webcrypto-ossl");
 const axios = require("axios");
 const FormData = require("form-data");
@@ -8,38 +6,37 @@ const FormData = require("form-data");
 let form = new FormData();
 const webcrypto = new WebCrypto();
 
-const argv = minimist(process.argv.slice(2));
-const filename = argv._[0];
-const filePath = path.join(__dirname, filename);
-const host = argv.l || argv.local ? "http://localhost:1234" : "https://cryptsend.io";
+const host = "https://cryptsend.io";
 
-axios
-  .get(`${host}/mkdir`)
-  .then(res => {
-    let fullPath = `${host}${res.request.path}`;
-    encryptFile()
-      .then(data => {
-        form.append("f", data.buffer, filename);
-        axios
-          .post(fullPath, form, {
-            headers: form.getHeaders()
-          })
-          .then(res => {
-            console.log(`${fullPath}#${data.hash}`);
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  })
-  .catch(error => {
-    console.error(error);
-  });
+const upload = (filePath, filename) => {
+  axios
+    .get(`${host}/mkdir`)
+    .then(res => {
+      let fullPath = `${host}${res.request.path}`;
+      encryptFile(filePath)
+        .then(data => {
+          form.append("f", data.buffer, filename);
+          axios
+            .post(fullPath, form, {
+              headers: form.getHeaders()
+            })
+            .then(res => {
+              console.log(`${fullPath}#${data.hash}`);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
 
-const encryptFile = async () => {
+const encryptFile = async (filePath) => {
   const key = await webcrypto.subtle.generateKey(
     {
       name: "AES-GCM",
@@ -85,3 +82,5 @@ const encryptFile = async () => {
     }
   });
 };
+
+exports.upload = upload;
