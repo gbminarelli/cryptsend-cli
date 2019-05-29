@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require('path');
 const WebCrypto = require("node-webcrypto-ossl");
 const axios = require("axios");
 const FormData = require("form-data");
@@ -8,14 +9,14 @@ const webcrypto = new WebCrypto();
 
 const host = "https://cryptsend.io";
 
-const upload = (filePath, filename) => {
+const upload = (filePath) => {
   axios
     .get(`${host}/mkdir`)
     .then(res => {
       let fullPath = `${host}${res.request.path}`;
       encryptFile(filePath)
         .then(data => {
-          form.append("f", data.buffer, filename);
+          form.append("f", data.buffer, path.basename(filePath));
           axios
             .post(fullPath, form, {
               headers: form.getHeaders()

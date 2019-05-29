@@ -3,13 +3,6 @@
 const minimist = require("minimist");
 const path = require("path");
 const cryptsend = require('../main.js');
+const filePath = minimist(process.argv.slice(2))._[0];
 
-const argv = minimist(process.argv.slice(2), {
-    boolean: [ 'a' ],
-    alias: { a: 'absolute' }
-});
-
-const filename = argv._[0];
-const _filePath = argv.a ? filename : path.join("./", filename);
-
-cryptsend.upload(_filePath, filename);
+cryptsend.upload(filePath);
