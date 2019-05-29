@@ -22,7 +22,8 @@ const upload = (filePath) => {
               headers: form.getHeaders()
             })
             .then(res => {
-              console.log(`${fullPath}#${data.hash}`);
+              console.log(`Here's the link to your encrypted file, only share it with people you trust! 
+${fullPath}#${data.hash}`);
             })
             .catch(error => {
               console.error(error);

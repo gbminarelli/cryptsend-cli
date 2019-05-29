@@ -1,6 +1,6 @@
 {
   "name": "cryptsend-cli",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A simple CLI for CryptSend (https://github.com/countable-web/cryptsend)",
   "main": "main.js",
   "homepage": "https://github.com/gbminarelli/cryptsend-cli/blob/master/README.md",

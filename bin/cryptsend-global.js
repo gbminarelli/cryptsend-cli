@@ -3,6 +3,12 @@
 const minimist = require("minimist");
 const path = require("path");
 const cryptsend = require('../main.js');
-const filePath = minimist(process.argv.slice(2))._[0];
+const argv = minimist(process.argv.slice(2));
 
-cryptsend.upload(filePath);
+if (argv._.length) {
+    const filePath = argv._[0];
+    cryptsend.upload(filePath);
+} else {
+    console.log(`Usage: cryptsend <file> 
+    encrypt and upload your file to the cloud, and share the link.`);
+}
