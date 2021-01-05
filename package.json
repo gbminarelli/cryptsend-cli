@@ -18,7 +18,7 @@
   "author": "Gianlucci B. Minarelli",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "form-data": "^2.3.3",
     "minimist": "^1.2.0",
     "node-webcrypto-ossl": "^1.0.43"
